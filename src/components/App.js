@@ -4,6 +4,8 @@ import Header from './Header';
 
 import Player from './Player';
 
+import AddPlayerForm from './AddPlayerForm';
+
 
   
 
@@ -33,6 +35,10 @@ class App extends Component {
       }
     ]
   };
+
+  // player id counter
+  prevPlayerId = 4;
+
 
   handleScoreChange = (index, delta) => {
     this.setState( prevState => ({
@@ -66,7 +72,21 @@ class App extends Component {
 //     });
 //   }
 
-  
+  handleAddPlayer = (name) => {
+    this.setState( prevState => { // use prevstate instead of this.state without callback or return
+      return {
+          players: [
+            ...prevState.players,
+            {
+            name,
+            score: 0,
+            id: this.prevPlayerId += 1
+            }
+
+          ]
+     }
+    });
+  }
 
   handleRemovePlayer = (id) => {
     this.setState( prevState => {
@@ -75,6 +95,8 @@ class App extends Component {
       };
     });
   }
+
+  
 
   render() {
     return (
@@ -97,6 +119,7 @@ class App extends Component {
 
           />
         )}
+        <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>
     );
   }
