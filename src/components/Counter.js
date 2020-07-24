@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 const Counter = ({index, score, changeScore}) => {
     // destructured , was (props) with props.index, props.score etc
   
@@ -15,5 +17,12 @@ const Counter = ({index, score, changeScore}) => {
     );
   
 }
-  
+
+Counter.propTypes = {
+  index: PropTypes.number ,
+  score: PropTypes.number,
+  changeScore: PropTypes.func
+
+};
+
 export default Counter;

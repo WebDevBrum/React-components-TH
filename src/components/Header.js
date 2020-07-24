@@ -1,8 +1,12 @@
 import React from 'react';
 
+import PropTypes from 'prop-types'
+
 import Stats from './Stats';
 
 import Stopwatch from './Stopwatch';
+
+
 
 const Header = (props) => {
 
@@ -17,5 +21,10 @@ const Header = (props) => {
     </header>
   );
 }
+
+Header.propTypes = {
+  players: PropTypes.arrayOf(PropTypes.object), //checks if its an array of objects
+  title: PropTypes.string
+};
 
 export default Header;
