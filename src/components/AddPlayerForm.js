@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 
 class AddPlayerForm extends Component {
+
+  static propTypes = {
+
+    addPlayer: PropTypes.func
+  }
 
   // this uses controlled components to handle the form instead of creating refs, though create ref way is commented for future ref.
 
